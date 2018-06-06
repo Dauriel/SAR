@@ -319,7 +319,7 @@ def process(indexer):
                     lista = andconposting(seguido)
                     if lista:
                         aa = seguido.split()[0]
-                        queryinput.append(aa)
+                        queryinput.append(aa.lower())
                 except KeyError:
                     print("Word not found in current list")
                 listastring = "".join(str(lista).split())
