@@ -6,21 +6,25 @@ import os
 def generatesnippet(text, word, check = False):
     from random import randint
     splitted = [x.lower() for x in text.split()]
-    if(check):
-        r = randint(0,len(splitted)-1)
-        position = r
-    else:
-        position = splitted.index(word)
-    if position <=1:
-        positionf = position+4
-    else:
-        positionm = position-2
+    try:
+        if(check):
+            r = randint(0,len(splitted)-1)
+            position = r
+        else:
+            position = splitted.index(word)
+        if position <=1:
+            positionf = position+4
+        else:
+            positionm = position-2
 
-    if len(splitted)-position <=1:
-        positionm = position-4
-    else:
-        positionf = position+4  
-    print(" ".join(splitted[positionm:positionf]))
+        if len(splitted)-position <=1:
+            positionm = position-4
+        else:
+            positionf = position+4  
+        print(" ".join(splitted[positionm:positionf]))
+    except ValueError:
+        pass
+    
         
 #queries con posición
 def andconposting(query1):
@@ -338,7 +342,7 @@ def process(indexer):
             splitted = query.split()
             listaresultado = logicadefrases(splitted)
             for sss in aux:
-                queryinput.append(sss)            
+                queryinput.append(sss)
             printnoticias(listaresultado)
             print("Number of elements found:",len(listaresultado))
         except KeyError:
