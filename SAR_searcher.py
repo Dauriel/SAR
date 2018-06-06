@@ -5,13 +5,13 @@ import os
 
 def generatesnippet(text, word, check = False):
     from random import randint
-    splitted = [x.lower() for x in text.split()]
+    splitted = [x.lower() for x in re.sub(r'\n'," ", re.sub(r'[¡!(),-.:;¿?«»/"]'," ", text)).split()]
     try:
         if(check):
             r = randint(0,len(splitted)-1)
             position = r
         else:
-            position = splitted.index(word)
+            position = splitted.index(word.lower())
         if position <=1:
             positionf = position+4
         else:
@@ -146,7 +146,8 @@ def snippet(lista):
             print("-----------------------------------------------------")
             print(titulo[y-1])
             for w in queryinput:
-                if(w in noticia[y-1]):
+                noticiafiltered = [x.lower() for x in re.sub(r'\n'," ", re.sub(r'[¡!(),-.:;¿?«»/"]'," ", noticia[y-1])).split()]
+                if(w.lower() in noticiafiltered):
                     generatesnippet(noticia[y-1], w)
                     test = True
             if not test:
