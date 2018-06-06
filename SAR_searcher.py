@@ -209,7 +209,7 @@ def logicadefrases(query):
                 if(query[pointer] == "NOT"):
                     posting = notlistas(posting)
                     if(pointer-1 == first):
-                        return andlistas(logicadefrases(shortquery), post)
+                        return andlistas(logicadefrases(shortquery), posting)
                 elif(query[pointer] == "AND"):
                     return andlistas(logicadefrases(shortquery),posting)
                 else:
