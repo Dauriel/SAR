@@ -314,6 +314,9 @@ def process(indexer):
             for seguido in seguidos:
                 try:
                     lista = andconposting(seguido)
+                    if lista:
+                        aa = seguido.split()[0]
+                        queryinput.append(aa)
                 except KeyError:
                     print("Word not found in current list")
                 listastring = "".join(str(lista).split())
@@ -335,7 +338,8 @@ def process(indexer):
         try:
             splitted = query.split()
             listaresultado = logicadefrases(splitted)
-            queryinput = aux            
+            for sss in aux:
+                queryinput.append(sss)            
             printnoticias(listaresultado)
             print("Number of elements found:",len(listaresultado))
         except KeyError:
