@@ -14,11 +14,13 @@ def generatesnippet(text, word, check = False):
             position = splitted.index(word.lower())
         if position <=1:
             positionf = position+4
+            positionm = 0
         else:
             positionm = position-2
 
         if len(splitted)-position <=1:
             positionm = position-4
+            positionf= len(splitted)
         else:
             positionf = position+4  
         print(" ".join(splitted[positionm:positionf]))
