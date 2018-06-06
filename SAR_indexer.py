@@ -1,3 +1,5 @@
+# Por Akshay Punjabi y Pablo Izquierdo Ayala
+
 import re
 import sys
 import pickle
