@@ -319,7 +319,7 @@ def process(indexer):
         if seguidos:
             for seguido in seguidos:
                 try:
-                    lista = andconposting(seguido)
+                    lista = andconposting(seguido.lower())
                     if lista:
                         aa = seguido.split()[0]
                         queryinput.append(aa.lower())
