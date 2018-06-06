@@ -244,7 +244,6 @@ def returnposting(term):
                 aux.append(t[0])            
             return aux
     else:
-        queryinput.append(term)
         aux = []
         for t in palabras[term]:
             aux.append(t[0])            
